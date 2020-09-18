@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Guest from "./Guest";
+import GuestList from "./GuestList";
 
 class App extends Component {
   state = {
@@ -71,7 +71,7 @@ class App extends Component {
               </tr>
             </tbody>
           </table>
-          <Guest
+          <GuestList
             guests={this.state.guests}
             toggleConfirmationAt={this.toggleConfirmationAt}
           />
