@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import Guest from "./Guest";
 
 class App extends Component {
   state = {
@@ -12,10 +13,15 @@ class App extends Component {
         name: "Krisztina",
         isConfirmed: true,
       },
+      {
+        name: "Istvan",
+        isConfirmed: true,
+      },
     ],
   };
 
   getTotalInvited = () => this.state.guests.length;
+
   render() {
     return (
       <div className="App">
@@ -23,7 +29,7 @@ class App extends Component {
           <h1>RSVP</h1>
           <p>It Is Time To Party!</p>
           <form>
-            <input type="text" value="Safia" placeholder="Invite Someone" />
+            <input type="text" value="" placeholder="Invite Someone" />
             <button type="submit" name="submit" value="submit">
               Submit
             </button>
@@ -52,35 +58,7 @@ class App extends Component {
               </tr>
             </tbody>
           </table>
-          <ul>
-            <li className="pending">
-              <span>Safia</span>
-            </li>
-            <li className="responded">
-              <span>Iver</span>
-              <label>
-                <input type="checkbox" checked /> Confirmed
-              </label>
-              <button>edit</button>
-              <button>remove</button>
-            </li>
-            <li className="responded">
-              <span>Corrina</span>
-              <label>
-                <input type="checkbox" checked /> Confirmed
-              </label>
-              <button>edit</button>
-              <button>remove</button>
-            </li>
-            <li>
-              <span>Joel</span>
-              <label>
-                <input type="checkbox" /> Confirmed
-              </label>
-              <button>edit</button>
-              <button>remove</button>
-            </li>
-          </ul>
+          <Guest guests={this.state.guests} />
         </div>
       </div>
     );
