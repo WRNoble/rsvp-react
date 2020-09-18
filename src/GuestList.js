@@ -7,8 +7,10 @@ const GuestList = (props) => (
     {props.guests.map((guests, index) => (
       <Guest
         handleConfirmation={() => props.toggleConfirmationAt(index)}
+        handleToggleEditing={() => props.toggleEditingAt(index)}
         key={index}
         name={guests.name}
+        isEditing={guests.isEditing}
         isConfirmed={guests.isConfirmed}
       />
     ))}
@@ -18,6 +20,7 @@ const GuestList = (props) => (
 GuestList.propTypes = {
   guests: PropTypes.array.isRequired,
   toggleConfirmationAt: PropTypes.func.isRequired,
+  toggleEditingAt: PropTypes.func.isRequired,
 };
 
 export default GuestList;
