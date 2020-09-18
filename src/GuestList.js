@@ -5,7 +5,17 @@ import Guest from "./Guest";
 const GuestList = (props) => (
   <ul>
     {props.guests.map((guests, index) => (
-      <Guest key={index} name={guests.name} isConfirmed={guests.isConfirmed} />
+      <Guest
+        handleConfirmation={() => props.toggleConfirmationAt(index)}
+        key={index}
+        name={guests.name}
+        isConfirmed={guests.isConfirmed}
+      />
     ))}
   </ul>
 );
+
+GuestList.propTypes = {
+  guests: PropTypes.array.isRequired,
+  toggleConfirmationAt: PropTypes.func.isRequired,
+};
